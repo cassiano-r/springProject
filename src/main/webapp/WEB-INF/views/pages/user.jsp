@@ -14,7 +14,7 @@
 
 <h3> User Form</h3>
 
-<form:form modelAttribute="user" action="${pageContext.request.contextPath}/user/save" method="GET">
+<form:form modelAttribute="user" action="${pageContext.request.contextPath}/user" method="POST">
 
 	<div>
 		<label>Name:</label>
@@ -29,7 +29,7 @@
 		<form:input path="cpf" id="cpf" type="text"/>
 	</div>
 	<div>
-		<form:button>Save</form:button>
+		<form:button type="submit">Save</form:button>
 	</div>
 
 </form:form>
