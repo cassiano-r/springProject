@@ -7,6 +7,9 @@
 <title>Spring Project</title>
 </head>
 <body>
-<h1>Welcome ${nome}</h1>
+<h1>Welcome ${id}</h1>
+<p>User-Agent: ${agent}</p>
+<p>Accept: ${accept}</p>
+<p>Accept Language: ${acceptLanguage}</p>
 </body>
 </html>

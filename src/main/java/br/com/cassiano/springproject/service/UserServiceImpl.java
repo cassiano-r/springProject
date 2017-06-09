@@ -3,6 +3,7 @@ package br.com.cassiano.springproject.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import br.com.cassiano.springproject.entity.User;
@@ -31,9 +32,12 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public void update(User user) {
+	public User update(Integer userId, User user) {
 		// TODO Auto-generated method stub
-		
+		User foundUser = findById(userId);
+		BeanUtils.copyProperties(user, foundUser);
+		save(foundUser);		
+		return foundUser;
 	}
 
 	@Override

@@ -41,12 +41,15 @@
 		<td>Last Name</td>
 		<td>First Name</td>
 		<td>CPF</td>
+		<td>Edit</td>
+		<td>Delete</td>
 	</tr>
 	<c:forEach items="${users}" var="user">
 		<tr>
 			<td>${user.lastName}</td>
 			<td>${user.firstName}</td>
 			<td>${user.cpf}</td>
+			<td><a href="${pageContext.request.contextPath}/user/${user.id}">Edit</a></td>
 		</tr>
 	</c:forEach>
 </table>
