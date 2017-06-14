@@ -15,8 +15,15 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public User findById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		User found = new User();
+		found.setId(id);
+		
+		List<User> list = findAll();
+		if(list.contains(found))
+		{
+			found = list.get(list.indexOf(found));
+		}
+		return found;
 	}
 
 	@Override
@@ -35,8 +42,7 @@ public class UserServiceImpl implements UserService{
 	public User update(Integer userId, User user) {
 		// TODO Auto-generated method stub
 		User foundUser = findById(userId);
-		BeanUtils.copyProperties(user, foundUser);
-		save(foundUser);		
+		BeanUtils.copyProperties(user, foundUser, "id");
 		return foundUser;
 	}
 

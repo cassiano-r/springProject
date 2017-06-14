@@ -39,9 +39,9 @@ public class UserController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String save(User user, ModelMap map){
 				
+		user.setId(incrementId.incrementAndGet());
 		userService.save(user);		
 		user = new User();
-		user.setId(incrementId.incrementAndGet());
 		map.addAttribute("user", user);
 		map.addAttribute("users",userService.findAll());
 		
@@ -51,7 +51,7 @@ public class UserController {
 	@RequestMapping(value = "/{userId}", method = RequestMethod.PUT)
 	public ModelAndView update(@PathVariable("userId") Integer userId, User user)
 	{
-		ModelAndView view = new ModelAndView("user");
+		ModelAndView view = new ModelAndView("redirect:/user");
 		user = userService.update(userId, user);
 		view.addObject("user",user);
 		
@@ -70,7 +70,7 @@ public class UserController {
 			found = list.get(list.indexOf(found));
 		}
 		map.addAttribute("user", found);
-		map.addAttribute("user", list);
+		map.addAttribute("users", list);
 		return "user";
 	}
 	
