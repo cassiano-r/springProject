@@ -3,7 +3,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -24,25 +23,27 @@
 	</c:otherwise>
 </c:choose>
 
+<div class="container-fluid">
 <form:form modelAttribute="user" action="${formAction}" method="${formMethod}">
-
-	<div>
+	<div class="form-group row">
 		<label>Name:</label>
-		<form:input path="firstName" id="firstName" type="text"/>
+		<form:input class="form-control" path="firstName" id="firstName" type="text"/>
 	</div>
-	<div>
+	<div class="form-group row">
 		<label>Last Name:</label>
-		<form:input path="lastName" id="lastName" type="text"/>
+		<form:input class="form-control" path="lastName" id="lastName" type="text"/>
 	</div>
-	<div>
+	<div class="form-group row">
 		<label>CPF:</label>
-		<form:input path="cpf" id="cpf" type="text"/>
+		<form:input class="form-control" path="cpf" id="cpf" type="text"/>
 	</div>
-	<div>
-		<form:button type="submit">Save</form:button>
+	<div class="form-group row">
+		<button class="btn btn-primary" type="submit">
+			<i class="fa fa-floppy-o" aria-hidden="true"></i>Save
+		</button>
 	</div>
-
 </form:form>
+</div>
 
 <h2>List of User</h2>
 
