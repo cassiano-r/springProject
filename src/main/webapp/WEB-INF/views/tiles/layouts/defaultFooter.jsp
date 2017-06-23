@@ -1,3 +1,3 @@
 <div>
-	<p>Footer</p>
+	<p>Cassiano Ricardo Gomes da Silva LTDA.</p>
 </div>

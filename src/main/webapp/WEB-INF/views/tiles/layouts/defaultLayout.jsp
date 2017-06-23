@@ -12,32 +12,13 @@
 <title><tiles:getAsString name="title"/></title>
 	<!--  <style type="text/css">
          #header {
-         margin-left: 20%;
+         background-color: yellow;
          }
          #footer {
-         margin-left: 20%;
-         bottom: 0px;
-         height: 10%;
-         position: fixed;
+         background-color: yellow;
          }
-         #site-content {
-         float: left;
-         z-index: 20;
-         position: fixed;
-         margin-left: 20%;
-         }
-         #sidemenu #menu {
-         list-style-type: none;
-         float: left;
-         }
-         #sidemenu #menu li {
-         font-size: 1.2em;
-         }
-         #sidemenu #menu li a {
-         text-decoration: none;
-         text-transform: uppercase;
-         }
-      </style>-->
+      </style>
+      -->
 </head>
 
 
@@ -45,20 +26,20 @@
 
 <div class="container">
          
-	<header id="header">
+	<header id="header" class="well">
 		<tiles:insertAttribute name="header"/>
-	</header>	
+	</header>
 	<section id="sidemenu">
 		<tiles:insertAttribute name="menu"/>
 	</section>
 	<section id="site-content">
 		<tiles:insertAttribute name="body" />
 	</section>
-	<footer id="footer">
+	<footer id="footer" class="well">
 		<tiles:insertAttribute name="footer"/>
 	</footer>
 	
-</div>	
+</div>
 	
 	<script src="webjars/jquery/3.2.1/jquery.min.js"></script>
 	<script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
