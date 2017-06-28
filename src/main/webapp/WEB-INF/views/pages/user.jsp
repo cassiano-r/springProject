@@ -39,7 +39,7 @@
 	</div>
 	<div class="form-group row">
 		<button class="btn btn-primary" type="submit">
-			<i class="fa fa-floppy-o" aria-hidden="true"></i>Save
+			<i class="fa fa-floppy-o" aria-hidden="true"></i> Save
 		</button>
 	</div>
 </form:form>

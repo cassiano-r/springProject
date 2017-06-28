@@ -23,6 +23,7 @@
 		<webjar.font-awesome.version>4.7.0</webjar.font-awesome.version>
 		<myssql.version>6.0.6</myssql.version>
 		<hibernate.manager.version>5.2.10.Final</hibernate.manager.version>
+		<hibernate.validator.version>5.4.1.Final</hibernate.validator.version>
 		
 	</properties>
 
@@ -134,6 +135,12 @@
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-entitymanager</artifactId>
 		    <version>${hibernate.manager.version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>${hibernate.validator.version}</version>
 		</dependency>
 
 	</dependencies>
