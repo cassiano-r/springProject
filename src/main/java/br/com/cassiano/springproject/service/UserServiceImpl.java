@@ -1,6 +1,5 @@
 package br.com.cassiano.springproject.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
@@ -18,8 +17,6 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	private UserDAO userDAO;
 	
-	List<User> users = new ArrayList<>();
-
 	@Override
 	public User findById(Integer id) {
 		
@@ -30,7 +27,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public List<User> findAll() {
 		
-		return users;
+		return userDAO.findAll();
 	}
 
 	@Override
@@ -41,9 +38,8 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public User update(Integer userId, User user) {
-		
-		User foundUser = findById(userId);
+	public User update(User user) {		
+		User foundUser = findById(user.getId());
 		BeanUtils.copyProperties(user, foundUser, "id");
 		userDAO.update(foundUser);
 		return foundUser;
@@ -55,6 +51,12 @@ public class UserServiceImpl implements UserService{
 		
 		userDAO.delete(user);
 		
+	}
+
+	@Override
+	public User findByCpf(String cpf) {
+		
+		return userDAO.findByCpf(cpf);
 	}
 
 }

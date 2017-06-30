@@ -3,17 +3,10 @@ package br.com.cassiano.springproject.dao;
 import java.util.List;
 
 import br.com.cassiano.springproject.entity.User;
+import br.com.cassiano.springproject.generic.JPAGenreric;
 
-public interface UserDAO {
+public interface UserDAO extends JPAGenreric<User>{
 	
-	User findById(Integer id);
-	
-	List<User> findAll();
-	
-	void save(User user);
-	
-	void update(User user);
-	
-	void delete(User user);
+	User findByCpf(String cpf);
 
 }

@@ -47,13 +47,12 @@
 
 <h2>List of User</h2>
 
-<table>
+<table class="table">
 	<tr>
 		<td>Last Name</td>
 		<td>First Name</td>
 		<td>CPF</td>
 		<td>Edit</td>
-		<td>Delete</td>
 	</tr>
 	<c:forEach items="${users}" var="user">
 		<tr>

@@ -3,12 +3,14 @@ package br.com.cassiano.springproject.controllers;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.cassiano.springproject.entity.User;
@@ -49,16 +51,17 @@ public class UserController {
 	public ModelAndView update(@PathVariable("userId") Integer userId, User user)
 	{
 		ModelAndView view = new ModelAndView("redirect:/user");
-		user = userService.update(userId, user);
-		view.addObject("user",user);
-		
+		User founduser = userService.findById(userId);
+		BeanUtils.copyProperties(user, founduser,"id");
+		founduser = userService.update(founduser);
+		view.addObject("user",founduser);		
 		return view;
 	}
 	
 	@RequestMapping(value = "/{userId}", method = RequestMethod.GET)
 	public String getById(@PathVariable("userId") Integer userId, ModelMap map)
 	{
-		User found = new User();
+		User found = userService.findById(userId);
 		found.setId(userId);
 		
 		List<User> list = userService.findAll();
@@ -69,6 +72,11 @@ public class UserController {
 		map.addAttribute("user", found);
 		map.addAttribute("users", list);
 		return "user";
+	}
+	
+	@RequestMapping("/getCpf/{cpf}")
+	public @ResponseBody User findByCpf(@PathVariable String cpf){
+		return userService.findByCpf(cpf);
 	}
 	
 
