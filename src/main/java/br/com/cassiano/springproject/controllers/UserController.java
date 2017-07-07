@@ -1,8 +1,6 @@
 package br.com.cassiano.springproject.controllers;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
-
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

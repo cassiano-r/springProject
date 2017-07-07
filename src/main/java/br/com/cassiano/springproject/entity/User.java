@@ -1,18 +1,27 @@
 package br.com.cassiano.springproject.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import org.hibernate.validator.constraints.br.CPF;
 
 @NamedQuery(name = "User.findByCpf", query = "SELECT u FROM User u WHERE u.cpf = :cpf")
 @Entity
-@Table(name = "USER")
+@Table(name = "USER", uniqueConstraints = {
+		@UniqueConstraint(columnNames = "username")
+		})
 public class User {
 	
 	@Id
@@ -28,6 +37,35 @@ public class User {
 	@Column(name = "CPF")
 	@CPF(message = "Wrong CPF, test again")
 	private String cpf;
+	
+	@Column(name = "USERNAME")
+	private String username;
+	
+	@Column(name = "PASSWORD")
+	private String password;
+	
+	@ManyToMany
+	@JoinTable(name = "USER_PROFILE",
+				joinColumns = {@JoinColumn(name = "USER_ID")},
+				inverseJoinColumns = {@JoinColumn(name = "USER_PROFILE_ID")}
+			)
+	private Set<UserProfile> userProfiles = new HashSet<>();
+	
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 	public String getLastName() {
 		return lastName;
@@ -84,6 +122,22 @@ public class User {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public Set<UserProfile> getUserProfiles() {
+		return userProfiles;
+	}
+
+	public void setUserProfiles(Set<UserProfile> userProfiles) {
+		this.userProfiles = userProfiles;
 	}
 	
 	

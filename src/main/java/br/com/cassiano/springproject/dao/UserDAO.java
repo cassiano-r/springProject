@@ -11,4 +11,6 @@ public interface UserDAO extends JPAGenreric<User>{
 
 	List<User> findBy(String lastName, String firstName, String cpf);
 
+	User findUsername(String username);
+
 }

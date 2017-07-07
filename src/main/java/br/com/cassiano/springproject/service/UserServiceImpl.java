@@ -64,5 +64,10 @@ public class UserServiceImpl implements UserService{
 				
 		return userDAO.findBy(lastName,firstName,cpf);
 	}
+	
+	@Override
+	public User findUsername(String username){
+		return userDAO.findUsername(username);
+	}
 
 }

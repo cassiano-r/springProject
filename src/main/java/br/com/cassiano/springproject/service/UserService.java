@@ -9,5 +9,7 @@ public interface UserService extends JPAGenreric<User>{
 	User findByCpf(String cpf);
 
 	List<User> findBy(String lastName, String firstName, String cpf);
+
+	User findUsername(String username);
 		
 }
