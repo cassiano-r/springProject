@@ -16,6 +16,7 @@
       <ul class="nav navbar-nav">
         <li><a href="${pageContext.request.contextPath}/">Home</a></li>
 		<li><a href="${pageContext.request.contextPath}/user">User</a></li>
+		<li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
