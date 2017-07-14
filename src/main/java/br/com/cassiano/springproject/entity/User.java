@@ -82,14 +82,6 @@ public class User {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-
-	public String getfirstName() {
-		return firstName;
-	}
-
-	public void setfirstName(String firstName) {
-		this.firstName = firstName;
-	}
 	
 	public Integer getId() {
 		return id;
